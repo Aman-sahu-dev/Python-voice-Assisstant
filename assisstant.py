@@ -10,10 +10,10 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-# import datetime                                             # it is used for checking date and time
+import datetime                                             # it is used for checking date and time
 import os                                                   # it is here used for taking path
 import time
-import pytz
+import pytz 
 import random                                               #  for random integer
 import smtplib                                              # for sending email
 from selenium import webdriver                              # it is used for serching
@@ -25,9 +25,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 import pyttsx3                                              # it is used for taking voices from computer
 import speech_recognition as sr                             # it is used for audio recognition
-# import pyaudio
+import pyaudio
 import wikipedia                                            # it is used for directly getting answers by wikipedia
-import selenium                                             # it is also used for testing sites and doing work in browsers opening link directly
+import selenium                                            # it is also used for testing sites and doing work in browsers opening link directly
 import webbrowser
 import subprocess                                           # it allow us to open sub process 
 import requests
@@ -63,7 +63,6 @@ def takeCommand():
         print("Recongnizing. . .")
         query = r.recognize_google(audio, language='en-in')
         print(f"User said : {query}\n")
-
     except Exception as e:
         print(e)
         print("could not recognise. . .")
@@ -187,13 +186,13 @@ def wishMe():
 
     date =datetime.datetime.now().date()
     time = datetime.datetime.now().strftime("%H:%M:%S")
-    speak(f"I am Jarvis . Today's date is {date} and the time is {time} . please tell me how may i help you")
+    # speak(f"I am mark . Today's date is {date} and the time is {time} . please tell me how may i help you")
 
 # function for sendind email.
 def sendemail(reciever_email,content):
-    sender_email= "sahuaman4444@gamil.com"
-    reciever_email = "amanempirex4k@gmail.com"
-    password = "Aman@x4k"
+    sender_email= "mnempirex4k@gmail.com"
+    reciever_email = reciever_email
+    password = "mn@x4kae"
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
@@ -203,19 +202,19 @@ def sendemail(reciever_email,content):
     server.close()
 
 def check_message():
-    driver = webdriver.Chrome("D:\Softwares\chromedriver_win32\chromedriver.exe")
+    driver = webdriver.Chrome("X:\\Softwares\\chromedriver_win32\\chromedriver.exe")
     driver.get('https://facebook.com/')
-    username_space = driver.find_element_by_xpath('//*[@id="email"]')
+    username_space = driver.find_element('//*[@id="email"]')
     username_space.send_keys(7828737234)
-    password_space = driver.find_element_by_xpath('//*[@id="pass"]')
+    password_space = driver.find_element('//*[@id="pass"]')
     password_space.click()
     password_space.send_keys("amanempire")
-    sign_in_button = driver.find_element_by_xpath('//*[@id="u_0_b"]')
+    sign_in_button = driver.find_element('//*[@id="u_0_b"]')
     sign_in_button.click()
 
     time.sleep(6)
 
-    message = driver.find_element_by_xpath('//*[@id="mount_0_0"]/div/div/div[1]/div[2]/div[4]/div[1]/div[2]/span/div/div[1]')
+    message = driver.find_element('//*[@id="mount_0_0"]/div/div/div[1]/div[2]/div[4]/div[1]/div[2]/span/div/div[1]')
     message.click()
 
 def note(text):
@@ -284,13 +283,13 @@ if __name__ == "__main__":
     while True:
         query = takeCommand().lower()
 
-        if "hello" in query:
+        if "mark" in query:
             speak("hello sir")
             speak("what can i do for you")
             query = takeCommand().lower()
 
             if "your name" in query or "about you" in query:
-                speak("my name is jarvis . i m your persoanl voice assissant. i will help you serching things and also do some other stuff for your easyness")
+                speak("my name is mark . i m your persoanl voice assissant. i will help you serching things and also do some other stuff for your easyness")
 
             elif "how are you" in query or "what'sup" in query:
                 speak("i am fine. what about you")
@@ -318,19 +317,10 @@ if __name__ == "__main__":
                 speak(f"sir todays date is {date} ")
             
             elif "about me" in query or "who i am" in query:
-                speak("sir your name is Aman sahu . your age is 19 . and your are studying in Atria institute of technology.")
+                speak("sir your name is Aman sahu . your age is 21 . and your are studying in Atria institute of technology.")
                 speak(" your mobile number is 7828737234 . and also your email is amanempirex4k@gmail.com")
-                speak("you are living in bhopal . your home address is shed 2 patel nagar mandideep")
+                speak("you are living in Banglore.")
             
-            # For searching something
-            elif "wikipedia" in query:
-                os.system("cls")
-                speak("searching wikipedia. . .")
-                query = query.replace("wikipedia","")
-                results = wikipedia.summary(query, sentences = 2)
-                speak("according to wikipedia")
-                print(results)
-                speak(results)
 
             elif "search" in query:
                 query = query.replace("search","")
@@ -379,18 +369,18 @@ if __name__ == "__main__":
 
             elif "play music" in query:
                 speak("playing music")
-                music_dir = 'D:\\Music'
+                music_dir = 'X:\\Music'
                 songs = os.listdir(music_dir)
                 os.startfile(os.path.join(music_dir,songs[random.randint(0,len(songs)-1)]))
 
-            elif "open visual studio" in query:
+            elif "open visual studio" in query or "visual code" in query:
                 speak("opening visual studio")
-                path = "C:\\Users\\Aman\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+                path = "C:\\Users\\Aman Sahu\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
                 os.startfile(path)
 
             elif "open whatsapp" in query:
                 speak("opening whatsapp")
-                path = "C:\\Users\\Aman\\AppData\\Local\\WhatsApp\\WhatsApp.exe"
+                path = "X:\\Softwares\\WhatsAppSetup.exe"
                 os.startfile(path)
             
             elif "news" in query:
@@ -405,7 +395,7 @@ if __name__ == "__main__":
                 try:
                     speak("whats should i say")
                     content = takeCommand()
-                    reciever_email = "amanempirex4k@gmail.com"
+                    reciever_email = "shivamsinghs106@gmail.com"
                     sendemail(reciever_email,content)
                     speak("Email has been sent")
                 except Exception as e:
@@ -427,26 +417,37 @@ if __name__ == "__main__":
                         else:
                             speak("please try again")
             
+            # else:
+            #     speak("could not recognize. say again")
+            #     query = takeCommand().lower()
+            
+            # For searching something
+            elif  "wikipedia" in query:
+                os.system("cls")
+                speak("searching wikipedia. . .")
+                query = query.replace("wikipedia","")
+                results = wikipedia.summary(query, sentences = 2)
+                speak("according to wikipedia")
+                print(results)
+                speak(results)
+
+        # for extra commands
+            elif "ok" in query:
+                speak("yes sir")                    
+
+            elif "good bye" in query or "bye" in query or "quit" in query or "exit" in query or "sleep" in query:
+                speak("bye sir")
+                os.system("cls")
+                exit()
+
+            elif "good night" in query:
+                speak("bye sir. good night")
+                os.system("cls")
+                exit()
+                
+            elif "thank you" in query:
+                speak("its my pleasure sir.")
+
             else:
                 speak("could not recognize. say again")
                 query = takeCommand().lower()
-        # for extra commands
-        elif "ok" in query:
-            speak("yes sir")                    
-
-        elif "good bye" in query or "bye" in query or "quit" in query or "exit" in query or "sleep" in query:
-            speak("bye sir")
-            os.system("cls")
-            exit()
-
-
-        elif "good night" in query:
-            speak("bye sir. good night")
-            os.system("cls")
-            exit()
-            
-        elif "thank you" in query:
-            speak("its my pleasure sir.")
-
-        else:
-            pass
